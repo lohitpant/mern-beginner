@@ -10,28 +10,28 @@ function App() {
   const [newFoodName, setNewFoodName]=useState("")
 
   useEffect(()=>{
-    Axios.get("http://localhost:4000/read").then((response)=>{
+    Axios.get("https://mern-beginnerss.herokuapp.com/read").then((response)=>{
       setFoodList(response.data)
       console.log(response);
     })
   },[])
 
   const addToList=()=>{
-    Axios.post("http://localhost:4000/insert", {      
+    Axios.post("https://mern-beginnerss.herokuapp.com/insert", {      
       foodName:food,
       days:days
     })
   }
 
   const updateFood=(id)=>{
-    Axios.put("http://localhost:4000/update", {
+    Axios.put("https://mern-beginnerss.herokuapp.com/update", {
       id:id,
       newFoodName:newFoodName
     })
   }
 
   const deleteFood=(id)=>{
-    Axios.delete(`http://localhost:4000/delete/${id}`)
+    Axios.delete(`https://mern-beginnerss.herokuapp.com/delete/${id}`)
   }
 
   return (
